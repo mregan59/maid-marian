@@ -28,10 +28,13 @@ import {
     IconRegistry,
 } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { default as lightTheme } from './theme/light.json'; // <-- Import app theme
-import { default as darkTheme } from './theme/dark.json'; // <-- Import app theme
-
-// import { default as mapping } from './theme/mapping.json'; // <-- Import app theme
+import { default as lightTheme } from './src/shared/light.json'; // <-- Import app theme
+import { default as darkTheme } from './src/shared/dark.json'; // <-- Import app theme
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Loading } from './src/loading';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppNavigator } from './src/navigation/app.navigator';
+import { AppRoute } from './src/navigation/app-routes';
 
 const FacebookIcon = (props: any) => <Icon name="facebook" {...props} />;
 
@@ -41,6 +44,8 @@ export const LoginButton = () => (
 // customMapping={...mapping}
 export default () => {
     const [isDarkTheme, setIsDarkTheme] = useState(true);
+    const [initialRoute, setInitialRoute] = useState(AppRoute.HOME);
+
     return (
         <>
             <IconRegistry icons={EvaIconsPack} />
@@ -52,18 +57,16 @@ export default () => {
                         : { ...eva.light, ...lightTheme }
                 }
             >
-                <Layout
-                    style={{
-                        flex: 1,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Button onPress={() => setIsDarkTheme(!isDarkTheme)}>
-                        HOME
-                    </Button>
-                    <LoginButton></LoginButton>
-                </Layout>
+                <SafeAreaProvider>
+                    {initialRoute ? (
+                        <NavigationContainer>
+                            <AppNavigator />
+                        </NavigationContainer>
+                    ) : (
+                            <Loading></Loading>
+                        )}
+                </SafeAreaProvider>
+
             </ApplicationProvider>
         </>
     );

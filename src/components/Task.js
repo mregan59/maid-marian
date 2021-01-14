@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput, SafeAreaView, View, TouchableOpacity } from 'react-native';
-import { styles } from '../constants/globalStyles';
+import { styles } from '../../constants/globalStyles';
 import { FontAwesome } from '@expo/vector-icons';
 
 

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {FontAwesome} from '@expo/vector-icons';
 import LoadingRow from './LoadingRow';
 import { FlatList, Text, SafeAreaView, View } from 'react-native';
-import { styles } from "../constants/globalStyles";
+import { styles } from "../../constants/globalStyles";
 
 
 function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {

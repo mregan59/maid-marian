@@ -1,7 +1,7 @@
 // components/LoadingRow.js
 import React, { useState, useEffect } from 'react';
 import { Animated, Text, View, Easing, SafeAreaView } from 'react-native';
-import { styles } from '../constants/globalStyles';
+import { styles } from '../../constants/globalStyles';
 
 const GlowView = props => {
   const [glowAnim] = useState(new Animated.Value(0));

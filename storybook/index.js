@@ -6,8 +6,9 @@ import './rn-addons';
 // import stories
 // storybook/config.js
 configure(() => {
-    require('../components/Task.stories.js');
-    require('../components/TaskList.stories.js');
+    require('../src/components/Task.stories.js');
+    require('../src/components/TaskList.stories.js');
+    require('../src/components/Calendar/Calendar.stories.js');
   }, module);
 
 const StorybookUIRoot = getStorybookUI({

@@ -1,0 +1,23 @@
+import { Dimensions } from 'react-native';
+var { height, width } = Dimensions.get('window');
+
+export const spacing = (num) => {
+    return num * 8;
+};
+
+export const variables = {
+    sideMargin: spacing(2),
+    cardMargin: spacing(2),
+    borderRadius1: 5,
+    borderRadius2: 10,
+    borderRadius3: 30,
+    borderRadiusRound: 50,
+    topNavBarHeight: 56,
+};
+
+export const dimensions = {
+    innerWidth: width - variables.sideMargin * 2,
+    innerHeight: height - variables.topNavBarHeight,
+    fullWidth: width,
+    height: height,
+};
